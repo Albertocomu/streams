@@ -18,6 +18,6 @@ public class Trader {
     }
 
     public String toString() {
-        return "teoriaStreams.Trader:" + this.name + " in " + this.city;
+        return "Trader: " + this.name + " in " + this.city;
     }
 }
