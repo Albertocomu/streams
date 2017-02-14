@@ -1,6 +1,4 @@
 
-import com.sun.org.apache.xpath.internal.operations.String;
-
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
@@ -37,8 +35,7 @@ public class Main {
         System.out.println("Devolver con una lista  todos los jugadores que hayan obtenido entre 200 y 500 canastas.");
         List<Jugador> jugadores200a500 =
                 jugadores.stream()
-                        .filter(jugador -> jugador.getCanastas() >= 200)
-                        .filter(jugador -> jugador.getCanastas() <= 500)
+                        .filter(jugador -> jugador.getCanastas() >= 200 && jugador.getCanastas() <= 500)
                         .collect(toList());
         System.out.println(jugadores200a500);
         System.out.println("");
@@ -46,6 +43,7 @@ public class Main {
         System.out.println("Devolver en una lista exclusivamente los nombres de los jugadores que satisfacen los requisitos del 2.3");
         String nombres =
                 jugadores.stream()
+
                         .map(jugador -> jugador.getNombre()).distinct()
                         .sorted()
                         .reduce("", (n1, n2) -> n1 + n2);
@@ -168,7 +166,7 @@ public class Main {
         System.out.println(sumaCanastas);
         System.out.println("");
 
-        //Extra: todos los jugadores de un equipo en concreto.
+        System.out.println("Extra: todos los jugadores de un equipo en concreto.");
         jugadores.stream()
                 .filter(jugador -> jugador.getEquipo().equals(cavs))
                 .forEach(System.out::println);

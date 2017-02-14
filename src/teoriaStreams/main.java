@@ -65,7 +65,8 @@ public class main {
 
         System.out.println("Listing 5.4. Return a string of all traders’ names sorted alphabetically");
         String traderStr = transactions.stream()
-                .map(transaction -> transaction.getTrader().getName()).distinct()
+                .map(transaction -> transaction.getTrader().getName())
+                .distinct()
                 .sorted()
                 .reduce("", (n1, n2) -> n1 + n2);
 
